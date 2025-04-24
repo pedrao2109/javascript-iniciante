@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <input type="number" id="horas" placeholder="Digite as horas">
+    <button onclick="horas()">
+        horas
+    </button>
+    <p id="resultado">
+    </p>
+    
+    <script>
+        
+        horas();
+        function horas(){
+            let dia = '';
+            let horario = document.getElementById("horas");
+            let res = document.getElementById("resultado");
+
+            let num = Number.parseInt(horario.value);
+
+            if(num >= 6 && num <= 12 ){
+                dia = 'Bom Dia!'
+            }
+            
+            else if(horario >= 13 && horario <= 18 ){
+                dia ='Boa Tarde!'
+            }
+            else if(horario >= 18 && horario <= 23 ){
+                dia = 'Boa Noite!'
+            }
+            else if(horario >= 0 && horario <= 5 ){
+                dia = 'Boa Madrugada!'
+            }
+            res.innerHTML = dia
+        }    
+    </script>
+</body>
+</html>

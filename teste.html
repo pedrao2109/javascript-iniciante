@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <input type="number" id="horas" placeholder="Digite as horas">
+    <button onclick="mostrarHoras()">
+        Mostrar horas
+    </button>
+    <div id="resultado"></div>
+    
+    <script>
+        function mostrarHoras() {
+            // Corrigir o acesso ao elemento
+            let horario = document.getElementById("horas");
+            let num = Number.parseInt(horario.value); // Obter o valor do input
+
+            // Validar se é um número
+            if (!isNaN(num)) {
+                let resultado = document.getElementById("resultado");
+                resultado.innerHTML = `Você digitou: ${num} horas.`;
+            } else {
+                alert("Por favor, insira um número válido.");
+            }
+        }
+    </script>
+</body>
+</html>
