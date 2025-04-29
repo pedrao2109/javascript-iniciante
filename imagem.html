@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem</title>
+</head>
+<p>
+    Trocar imagem
+</p>
+    <img onmouseover="mudar()" id="img1" src="https://www.pontoxtecidos.com.br/static/567/sku/155904889726288.gif" alt="imagem1" height="300px" width="300px">
+    <img onmouseout="voltar()" id="img2" src="https://img.freepik.com/fotos-premium/cor-verde-papagaio_179286-22.jpg?semt=ais_hybrid&w=740" alt="imagem2" height="300px" width="300px">
+<body>
+    <script>
+        function mudar(){
+            let img1 = document.getElementById('img1');
+            let img2 = document.getElementById('img2');
+            img1.style.display = 'none';
+            img2.style.display = 'block';
+        }
+        function voltar(){
+            let img1 = document.getElementById('img1');
+            let img2 = document.getElementById('img2');
+            img1.style.display = 'block';
+            img2.style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>
