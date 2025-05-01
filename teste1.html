@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividades para fazer</title>
+</head>
+<body>
+    <h1>Lista de coisas para fazer</h1>
+    <input type="text" id="tarefa" name="tarefa">
+    <button onclick="limparbarra()">Limpar</button>
+    <input type="button" id="bottom" name="bottom" value="Adicionar" onclick="addtarefa()">
+    <ul id="lista" style="list-style: none;">     
+    </ul>
+    <p id="conc"></p>
+    <ul id="listac" style="list-style: none;">
+    </ul>
+
+    <p>Data e Hora da Tarefa</p>
+    <ul id="lista2" style="list-style: none;"></ul>
+    <script>
+        function addtarefa(){
+            var time=Date.now()            
+            var task = document.getElementById("tarefa")
+            var list = document.getElementById("lista")
+            var tagli = document.createElement('li')
+            tagli.setAttribute("id", time)
+            tagli.innerHTML = (`<input type="checkbox" onclick="tarefaConcluida(${time})"/>${task.value}<input type="button" value="Excluir" onclick="deletar(${time})"/>`)
+            list.appendChild(tagli)
+            datas();                 
+        }
+        // function datas(){
+        //     var data = new Date()
+        //     var list2= document.getElementById("lista2")
+        //     var tagli2 = document.createElement('li')
+        //     tagli2.innerHTML = (`<span>${data.getDate()}/${data.getMonth()+1} -  ${data.getHours()}:${data.getMinutes()}:${data.getSeconds()}</span>`)
+        //     list2.appendChild(tagli2)
+        // }
+
+        function tarefaConcluida(idElementoConcluido){
+
+            
+            elementoConcluido = document.getElementById(idElementoConcluido);
+
+            var input_elemento = elementoConcluido.querySelector("input");
+
+            if (input_elemento.checked==true){
+                var pai_li = input_elemento.parentElement;
+                pai_li.style.textDecoration="line-through";
+                var taskc = document.getElementById("conc")
+                var ul2 = document.getElementById("listac")
+                var tagli3 = document.createElement("li")
+                tagli3.setAttribute("id", `tarefa_concluida_${idElementoConcluido}`);
+                taskc.innerHTML = ("Tarefas Concluidas")
+                tagli3.innerHTML = (`${elementoConcluido.innerText}`)
+                ul2.appendChild(tagli3)
+            }else{
+                var pai_li = input_elemento.parentElement;
+                pai_li.style.textDecoration="none";
+                elem = document.getElementById(`tarefa_concluida_${idElementoConcluido}`);
+                elem.remove();
+                
+            }
+
+    
+            
+         }
+
+         function deletar(idElemento){
+            var del = document.getElementById(idElemento);
+            del.style.justifyItems="left"
+            del.remove()
+            deltask = document.getElementById(`tarefa_concluida_${idElemento}`);
+            deltask.remove();
+         }
+         function limparbarra(){
+            document.getElementById('tarefa').value="";
+         }
+    </script>
+</body>

@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de coisas</title>
 </head>
 <body>
+    <h1>
+        Compromissos e Datas
+    </h1>
+    <input type="text" id="evento" placeholder="compromissos">
+    <input type="text" id="data" placeholder="data dos compromissos">
+    <button onclick="lista_tarefas()">
+        Colocar na lista
+    </button>
+    <script>
+        function lista_tarefas(){
+            let item = document.getElementById('evento');
+            let data = document.getElementById('data');
+            let tagli = document.createElement('li');
+            tagli.setAttribute("id", time)
+            tagli.innerHTML = (`<input type="checkbox" onclick="tarefaConcluida(${time})"/>${task.value}<input type="button" value="Excluir" onclick="deletar(${time})"/>`)
+            list.appendChild(tagli)
+        }
+        function tarefaConcluida(idElementoConcluido){
+
+            
+            elementoConcluido = document.getElementById(idElementoConcluido);
+
+            let input_elemento = elementoConcluido.querySelector("input");
+        }
+        if (input_elemento.checked==true){
+            let pai_li = input_elemento.parentElement;
+            pai_li.style.textDecoration="line-through";
+            let taskc = document.getElementById("conc")
+            let ul2 = document.getElementById("listac")
+            let tagli3 = document.createElement("li")
+            tagli3.setAttribute("id", `tarefa_concluida_${idElementoConcluido}`);
+            taskc.innerHTML = ("Tarefas Concluidas")
+            tagli3.innerHTML = (`${elementoConcluido.innerText}`)
+            ul2.appendChild(tagli3)
+        }else{
+            var pai_li = input_elemento.parentElement;
+            pai_li.style.textDecoration="none";
+            elem = document.getElementById(`tarefa_concluida_${idElementoConcluido}`);
+            elem.remove();
+            
+        }
+        function deletar(idElemento){
+            let del = document.getElementById(idElemento);
+            del.style.justifyItems="left"
+            del.remove()
+            deltask = document.getElementById(`tarefa_concluida_${idElemento}`);
+            deltask.remove();
+         }
+         function limparbarra(){
+            document.getElementById('tarefa').value="";
+         }
+    </script>
+
+    </script>
     
 </body>
 </html>
