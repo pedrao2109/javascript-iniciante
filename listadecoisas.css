@@ -1,0 +1,20 @@
+h1{
+    display: flex;
+    justify-content: center;
+}
+.botao{
+    display: flex;
+    justify-content:center ;
+}
+.tarefa{
+    display: flex;
+    justify-content: center;
+}
+.adicionar{
+    display: flex;
+    justify-content: center;
+}
+.data{
+    display: flex;
+    justify-content: center;
+}
